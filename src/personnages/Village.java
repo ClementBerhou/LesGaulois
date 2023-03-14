@@ -34,6 +34,16 @@ public class Village {
 		
 	}
 	
+	public String afficherVillageois() {
+		int i;
+		String noms = ""; 
+		for(i=0;i<this.nbVillageois;i++) {
+			noms += "-" + this.trouverHabitant(i).getNom() + "\n";
+		}
+		
+		return "Dans le village du chef " + chef.getNom() + " vivent les legendaires gaulois : \n" + noms ;
+	}
+	
 	public static void main(String args[]) {
 		Village VdI = new Village("Village des Irréductibles", 30);
 		//Gaulois gaulois = VdI.trouverHabitant(30); pas d'habitant donc peut pas fonctionner
@@ -41,10 +51,16 @@ public class Village {
 		VdI.setChef(chef);
 		Gaulois asterix  = new Gaulois("Asterix", 8);
 		VdI.ajouterHabitant(asterix);
-		Gaulois gaulois = VdI.trouverHabitant(0);
-		System.out.println(gaulois);
+		//Gaulois gaulois = VdI.trouverHabitant(0);
+		//System.out.println(gaulois);
+		Gaulois obelix  = new Gaulois("Obelix", 25);
+		VdI.ajouterHabitant(obelix);
+		System.out.println(VdI.afficherVillageois());
 		
 		
 	}
+	
+	
+	
 }
 
